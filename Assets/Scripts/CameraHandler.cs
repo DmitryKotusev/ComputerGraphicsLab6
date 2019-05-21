@@ -40,10 +40,13 @@ public class CameraHandler : MonoBehaviour
     void FixedTick()
     {
         delta = Time.deltaTime;
-        HandleScrolling();
-        if (Input.GetMouseButton(2))
+        if (!Input.GetKey(KeyCode.R) && !Input.GetKey(KeyCode.S))
         {
-            HandleRotation();
+            HandleScrolling();
+            if (Input.GetMouseButton(2))
+            {
+                HandleRotation();
+            }
         }
         HandlePosition();
 
