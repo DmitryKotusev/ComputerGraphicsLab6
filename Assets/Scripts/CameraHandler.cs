@@ -41,11 +41,11 @@ public class CameraHandler : MonoBehaviour
     {
         delta = Time.deltaTime;
         HandleScrolling();
-        HandlePosition();
         if (Input.GetMouseButton(2))
         {
             HandleRotation();
         }
+        HandlePosition();
 
         Vector3 targetPosition
             = Vector3.Lerp(mTransform.position, character.position, 1);
