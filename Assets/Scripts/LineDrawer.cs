@@ -8,17 +8,18 @@ public class LineDrawer : MonoBehaviour
     public GameObject linePrefab;
 
     public Line[] lines;
+    public GameObject[] points;
 
     void DrawLines()
     {
         foreach (Line line in lines)
         {
             Vector3 globalRespawnPosition = (line.point1.position + line.point2.position) / 2f;
-            GameObject newPoint = Instantiate(linePrefab, globalRespawnPosition, linePrefab.transform.rotation, linesContainer.transform);
-            LineRenderer lineRenderer = newPoint.GetComponent<LineRenderer>();
+            GameObject newLine = Instantiate(linePrefab, globalRespawnPosition, linePrefab.transform.rotation, linesContainer.transform);
+            LineRenderer lineRenderer = newLine.GetComponent<LineRenderer>();
             lineRenderer.positionCount = 2;
-            lineRenderer.SetPositions(new Vector3[] { newPoint.transform.InverseTransformPoint(line.point1.position),
-                newPoint.transform.InverseTransformPoint(line.point2.position) });
+            lineRenderer.SetPositions(new Vector3[] { newLine.transform.InverseTransformPoint(line.point1.position),
+                newLine.transform.InverseTransformPoint(line.point2.position) });
         }
     }
 

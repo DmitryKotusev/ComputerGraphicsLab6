@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     public GameObject targetRotationObject;
     public GameObject targetScaleObject;
+    public GameObject axis;
+    public GameObject planes;
     Quaternion targetObjectDefaultRotation;
     Vector3 targetObjectDefaultScale;
 
@@ -23,6 +25,17 @@ public class UIManager : MonoBehaviour
     public void ResetScale()
     {
         targetScaleObject.transform.localScale = targetObjectDefaultScale;
+    }
+
+    public void SwitchAxisMode()
+    {
+        axis.SetActive(!axis.activeSelf);
+    }
+
+    public void SwitchPlanesMode()
+    {
+        planes.SetActive(!planes.activeSelf);
+        // Вкл/выкл проекций
     }
 
     public void ExitApp()
